@@ -1,0 +1,11 @@
+<ul style="list-style: none;">
+  <%= form_for [@question, @answer] do |f| %>
+    <li>
+      <%= f.label :body, "Your Answer" %>
+    </li>
+    <li>
+      <%= f.text_area :body %>
+    </li>
+    <li><%= f.submit %></li>
+  <% end %>
+</ul>

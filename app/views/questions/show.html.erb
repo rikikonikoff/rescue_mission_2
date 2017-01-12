@@ -1,0 +1,25 @@
+<ul style="list-style: none;">
+  <li><%= link_to "back to all questions", questions_path %></li>
+  <li><%= link_to "edit this question", edit_question_path %></li>
+  <li><%= link_to "delete this question", @question, method: :delete, data: { confirm: "Are you sure?" } %></li>
+</ul>
+
+<h2><%= @question.title %></h2>
+<h4><%= @question.description %></h4>
+<p>asked by: <%= @asker.name %></p>
+
+
+<h4>submit an answer:</h4>
+<%= render "users/form", user: @user %>
+<%= render "answers/form", { question: @question, answer: @answer, user: @user } %>
+<br>
+
+<h4>previously submitted answers:</h4>
+<ul style="list-style: none;">
+  <% @answers.each do |answer| %>
+    <li><%= answer.user.name %>: <%= answer.body %>
+    <%= link_to "edit", edit_question_answer_path(@question, answer) %>
+    <%= link_to "delete", question_answer_path(answer), method: :delete, data: { confirm: "Are you sure?" } %></li>
+    <br>
+  <% end %>
+</ul>

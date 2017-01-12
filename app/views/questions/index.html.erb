@@ -1,0 +1,9 @@
+<h1><%= @title %></h1>
+
+<ul style="list-style: none;">
+  <% @questions.each do |question| %>
+    <li><%= link_to "#{question.title}", question_path(question) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "ask a new question", new_question_path %>

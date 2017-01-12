@@ -1,0 +1,15 @@
+<ul style="list-style: none;">
+  <%= form_for @user, remote: true do |f| %>
+    <li>
+      <%= f.label :name, "Your Name" %>
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      <%= f.label :email, "Your Email" %>
+      <%= f.text_field :email %>
+    </li>
+    <li>
+      <%= f.submit "Sign In/Sign Up" %>
+    </li>
+  <% end %>
+</ul>
